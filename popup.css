@@ -1,0 +1,455 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 420px;
+    background: linear-gradient(145deg, #0a2f28 0%, #1b5e4a 100%);
+    font-family: 'Segoe UI', 'Tahoma', 'Cairo', system-ui, sans-serif;
+    padding: 16px;
+}
+
+/* ========== الحاوية الرئيسية ========== */
+.container {
+    background: rgba(255, 255, 255, 0.97);
+    border-radius: 32px;
+    box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+}
+
+/* ========== الهيدر ========== */
+.header {
+    text-align: center;
+    padding: 20px 20px 12px;
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 24px;
+    margin-bottom: 10px;
+}
+
+.header h2 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #1a4d3b;
+}
+
+.header h2 span {
+    background: linear-gradient(95deg, #f59e0b, #f97316);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.tag {
+    font-size: 0.7rem;
+    color: #6c757d;
+    margin-top: 4px;
+}
+
+/* ========== أزرار التبويب ========== */
+.tabs {
+    display: flex;
+    gap: 10px;
+    padding: 15px 20px 0;
+    background: white;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    font-weight: bold;
+    background: #f1f5f9;
+    transition: 0.2s;
+}
+
+.tab-btn.active {
+    background: #0f6a3b;
+    color: white;
+}
+
+/* ========== الشاشات ========== */
+.screen {
+    display: none;
+    padding: 20px;
+    background: white;
+}
+
+.screen.active {
+    display: block;
+}
+
+/* ========== مجموعة الحقول ========== */
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #2d3e2b;
+    margin-bottom: 5px;
+}
+
+.required {
+    color: #e53e3e;
+}
+
+.hint,
+.optional {
+    font-size: 0.6rem;
+    font-weight: normal;
+    color: #9ca3af;
+}
+
+.optional {
+    background: #f1f5f9;
+    padding: 2px 6px;
+    border-radius: 20px;
+    margin-right: 6px;
+}
+
+/* ========== حقول الإدخال ========== */
+input,
+select {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-family: inherit;
+    background: white;
+    transition: all 0.2s;
+}
+
+input:focus,
+select:focus {
+    border-color: #0f6a3b;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(15, 106, 59, 0.2);
+}
+
+/* ========== حقل كلمة المرور مع زر العين ========== */
+.password-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-wrapper input {
+    flex: 1;
+    padding-left: 45px;
+}
+
+.toggle-password {
+    position: absolute;
+    left: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 5px;
+    margin: 0;
+    width: auto;
+    color: #6b7280;
+}
+
+.toggle-password:hover {
+    background: none;
+    transform: none;
+    box-shadow: none;
+    color: #0f6a3b;
+}
+
+/* ========== شروط كلمة المرور ========== */
+.password-requirements {
+    background: #f8fafc;
+    padding: 12px;
+    border-radius: 18px;
+    margin: 8px 0 16px;
+    border: 1px solid #e2e8f0;
+}
+
+.req-title {
+    font-size: 0.7rem;
+    font-weight: bold;
+    color: #334155;
+    margin-bottom: 8px;
+}
+
+.pass-reqs-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+}
+
+.pass-reqs-list li {
+    font-size: 0.65rem;
+    background: #f1f5f9;
+    padding: 4px 10px;
+    border-radius: 40px;
+    color: #475569;
+    transition: all 0.2s;
+}
+
+.pass-reqs-list li.met {
+    background: #d1fae5;
+    color: #065f46;
+    font-weight: bold;
+}
+
+.pass-reqs-list li.met::before {
+    content: "✓ ";
+}
+
+/* ========== حالة الحقول (صحيح/خطأ) ========== */
+.input-valid {
+    border-color: #10b981 !important;
+    background-color: #f0fdf4 !important;
+}
+
+.input-error {
+    border-color: #dc2626 !important;
+    background-color: #fef2f2 !important;
+}
+
+/* ========== رسائل الخطأ أسفل الحقول ========== */
+.error-message {
+    display: block;
+    font-size: 10px;
+    color: #dc2626;
+    margin-top: 3px;
+}
+
+/* ========== مجموعة الأزرار ========== */
+.button-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.primary-btn,
+.secondary-btn,
+.danger-btn {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.primary-btn {
+    background: linear-gradient(95deg, #0f6a3b, #1c8b54);
+    color: white;
+}
+
+.primary-btn:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(95deg, #0a5230, #177344);
+}
+
+.secondary-btn {
+    background: #f59e0b;
+    color: white;
+}
+
+.secondary-btn:hover {
+    background: #d97706;
+}
+
+.danger-btn {
+    background: #6b7280;
+    color: white;
+}
+
+.danger-btn:hover {
+    background: #4b5563;
+}
+
+/* ========== حالة الحفظ ========== */
+.status {
+    margin: 15px;
+    padding: 8px;
+    border-radius: 40px;
+    text-align: center;
+    font-size: 0.75rem;
+    display: none;
+}
+
+/* ========== قائمة العملاء ========== */
+.search-box {
+    margin-bottom: 15px;
+}
+
+.clients-list {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.client-card {
+    background: #f8fafc;
+    border-radius: 16px;
+    padding: 10px;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    border: 1px solid #e2e8f0;
+    transition: all 0.2s;
+}
+
+.client-card:hover {
+    background: #e0f2e9;
+    transform: translateX(-2px);
+}
+
+.delete-client {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #dc2626;
+    padding: 5px;
+    border-radius: 50%;
+    transition: all 0.2s;
+}
+
+.delete-client:hover {
+    background: #fee2e2;
+}
+
+.client-name {
+    font-weight: bold;
+    color: #1f3b2c;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.client-details {
+    font-size: 0.7rem;
+    color: #6b7280;
+    margin-top: 4px;
+}
+
+.stats {
+    text-align: center;
+    font-size: 0.7rem;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #e2e8f0;
+    color: #475569;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 30px;
+    color: #94a3b8;
+    font-size: 0.8rem;
+}
+
+/* ========== شريط التمرير ========== */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: #e2e8f0;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #0f6a3b;
+    border-radius: 10px;
+}
+
+/* ========== حالة توفر الحجز ========== */
+.availability-status {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border-radius: 20px;
+    padding: 12px 16px;
+    margin: 15px 20px 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    transition: all 0.3s ease;
+}
+
+.availability-status.available {
+    background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+    border-color: #10b981;
+}
+
+.availability-status.unavailable {
+    background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+    border-color: #ef4444;
+}
+
+.availability-status.warning {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    border-color: #f59e0b;
+}
+
+.status-icon {
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.status-text {
+    flex: 1;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.status-text small {
+    display: block;
+    font-size: 0.65rem;
+    font-weight: normal;
+    color: #475569;
+    margin-top: 2px;
+}
+
+.status-badge {
+    background: rgba(255,255,255,0.8);
+    padding: 4px 8px;
+    border-radius: 40px;
+    font-size: 0.6rem;
+    font-weight: bold;
+    color: #64748b;
+}
+
+/* تحديث مستمر */
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+}
+
+.availability-status.updating .status-icon {
+    animation: pulse 1s ease-in-out infinite;
+}

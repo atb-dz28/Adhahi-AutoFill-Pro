@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>Adhahi AutoFill Pro</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <img src="favicon.png" alt="icon" class="icon">
+        <h2>أضاحي <span>AutoFill</span></h2>
+        <p>تعبئة ذكية وسريعة للحجز</p>
+		<p>دعواتكم لأمي بالرحمة والمغفرة</p>
+		<!-- خاصية حالة الحجز (مباشرة تحت الهيدر) -->
+    <div class="availability-status" id="availabilityStatus">
+    <div class="status-icon">🔄</div>
+    <div class="status-text">جاري التحقق من توفر الحجز...</div>
+    <div class="status-badge">تحديث تلقائي</div>
+</div>
+    </div>
+
+    <div class="tabs">
+        <button id="tabInputBtn" class="tab-btn active">📝 إدخال بيانات</button>
+        <button id="tabClientsBtn" class="tab-btn">📋 العملاء</button>
+    </div>
+
+    <!-- شاشة الإدخال -->
+    <div id="inputScreen" class="screen active">
+        <div class="form-group">
+            <label>👤 اسم الزبون <span class="required">*</span></label>
+            <input type="text" id="clientName" placeholder="مثال: أحمد محمد علي">
+        </div>
+        <div class="form-group">
+            <label>🆔 رقم التعريف الوطني (NIN) <span class="hint">(18 رقم)</span></label>
+            <input type="text" id="nin" maxlength="18" placeholder="أدخل 18 رقماً">
+        </div>
+        <div class="form-group">
+            <label>💳 رقم بطاقة التعريف الوطنية (CNIBE) <span class="hint">(9 أرقام)</span></label>
+            <input type="text" id="idCard" maxlength="9" placeholder="123456789">
+        </div>
+        <div class="form-group">
+            <label>📱 رقم الهاتف</label>
+            <input type="tel" id="phone" placeholder="05xxxxxxxx">
+        </div>
+        <div class="form-group">
+            <label>📧 البريد الإلكتروني <span class="optional">اختياري</span></label>
+            <input type="email" id="email" placeholder="example@mail.com">
+        </div>
+        <div class="form-group">
+            <label>🔒 كلمة المرور</label>
+            <div class="password-wrapper">
+                <input type="password" id="pass" placeholder="••••••••">
+                <button type="button" id="togglePassword" class="toggle-password"> 🙈</button>
+            </div>
+        </div>
+        
+        <!-- شروط كلمة المرور -->
+        <div class="password-requirements">
+            <div class="req-title">🌡️ شروط كلمة المرور:</div>
+            <ul class="pass-reqs-list">
+                <li id="req-length">📏 8 أحرف على الأقل</li>
+                <li id="req-lower">🔡 حرف صغير (a-z)</li>
+                <li id="req-upper">🔠 حرف كبير (A-Z)</li>
+                <li id="req-number">🔢 رقم واحد على الأقل (0-9)</li>
+                <li id="req-special">✨ رمز خاص (@#$%^&+=)</li>
+            </ul>
+        </div>
+
+        <div class="form-group">
+            <label>📍 الولاية</label>
+            <select id="wilayaSelect">
+                <option value="">-- اختر ولاية --</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>🏘️ البلدية</label>
+            <select id="communeSelect" disabled>
+                <option value="">-- اختر البلدية --</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>💳 طريقة الدفع المفضلة</label>
+            <select id="paymentMethod">
+                <option value="">-- اختر --</option>
+                <option value="نقداً">💵 نقداً</option>
+                <option value="جهاز الدفع (TPE)">💳 جهاز الدفع (TPE) - خصم 1000 دج</option>
+                <option value="عبر الإنترنت">🌐 عبر الإنترنت - خصم 2000 دج</option>
+            </select>
+        </div>
+        <div class="button-group">
+            <button id="saveBtn" class="primary-btn">💾 حفظ الزبون الجديد</button>
+            <button id="updateBtn" class="secondary-btn" style="display:none;">✏️ تحديث</button>
+            <button id="cancelBtn" class="danger-btn" style="display:none;">❌ إلغاء</button>
+        </div>
+    </div>
+
+    <!-- شاشة قائمة العملاء -->
+    <div id="clientsScreen" class="screen">
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="🔍 بحث بالاسم أو الهاتف أو NIN">
+        </div>
+        <div id="clientsList" class="clients-list">
+            <div class="empty-state">📭 لا يوجد عملاء. أضف زبوناً جديداً</div>
+        </div>
+        <div class="stats">
+            عدد الزبائن : <span id="clientsCount">0</span>
+        </div>
+    </div>
+
+    <div id="status" class="status"></div>
+</div>
+<script src="wilayas_communes_full.js"></script>
+<script src="popup.js"></script>
+</body>
+</html>
