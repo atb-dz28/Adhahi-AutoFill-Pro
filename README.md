@@ -23,10 +23,6 @@ Chrome extension for automatic reservation form filling on Adhahi.dz platform.
 4. Click "Load unpacked"
 5. Select the extension folder
 
-## 📖 Documentation
-
-See [README.md](README.md) for full documentation.
-
 ## 📄 License
 
 MIT
