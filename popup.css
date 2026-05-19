@@ -453,3 +453,86 @@ select:focus {
 .availability-status.updating .status-icon {
     animation: pulse 1s ease-in-out infinite;
 }
+/* ========== توقيع المطور ========== */
+.developer-credit {
+    margin-top: 20px;
+    padding: 12px 16px;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border-radius: 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.credit-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #0f6a3b, #f59e0b, #0f6a3b);
+    animation: creditShine 3s ease-in-out infinite;
+}
+
+@keyframes creditShine {
+    0% { background-position: -100%; }
+    100% { background-position: 200%; }
+}
+
+.credit-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.credit-icon {
+    font-size: 1rem;
+    animation: iconPulse 2s ease-in-out infinite;
+}
+
+@keyframes iconPulse {
+    0%, 100% { transform: scale(1); opacity: 0.7; }
+    50% { transform: scale(1.1); opacity: 1; }
+}
+
+.credit-text {
+    font-size: 0.75rem;
+    color: #334155;
+    letter-spacing: 0.3px;
+}
+
+.credit-text strong {
+    background: linear-gradient(95deg, #0f6a3b, #1c8b54);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    font-weight: 800;
+}
+
+.credit-version {
+    font-size: 0.65rem;
+    background: #e2e8f0;
+    padding: 2px 8px;
+    border-radius: 30px;
+    color: #475569;
+    font-family: monospace;
+}
+
+/* تنسيق بديل (شريط جانبي) - اختياري */
+.developer-credit.compact {
+    padding: 8px 16px;
+}
+
+.developer-credit.compact .credit-content {
+    gap: 8px;
+}
+
+.developer-credit.compact .credit-icon {
+    font-size: 0.85rem;
+}
+
+.developer-credit.compact .credit-text {
+    font-size: 0.7rem;
+}
