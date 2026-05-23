@@ -1,11 +1,11 @@
 {
   "manifest_version": 3,
   "name": "Adhahi AutoFill Pro",
-  "version": "1.0",
+  "version": "4.0",
   "description": "تعبئة تلقائية متكاملة للولايات والبلديات وطرق الدفع",
   "permissions": ["storage", "notifications", "alarms"],
   "host_permissions": [
-    "https://adhahi.dz/*",
+    "https://adhahi.dz/*"
   ],
   "background": {
     "service_worker": "background.js"
@@ -17,9 +17,12 @@
   "icons": {
     "128": "favicon.png"
   },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  },
   "content_scripts": [
     {
-      "matches": ["https://adhahi.dz/register*"],
+      "matches": ["https://adhahi.dz/*"],
       "js": ["wilayas_communes_full.js", "content.js"],
       "run_at": "document_idle"
     }
