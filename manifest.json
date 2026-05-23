@@ -22,7 +22,7 @@
   },
   "content_scripts": [
     {
-      "matches": ["https://adhahi.dz/*"],
+      "matches": ["https://adhahi.dz/register*"],
       "js": ["wilayas_communes_full.js", "content.js"],
       "run_at": "document_idle"
     }
