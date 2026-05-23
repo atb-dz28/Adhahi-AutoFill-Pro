@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Adhahi AutoFill Pro",
-  "version": "4.0",
+  "version": "1.0",
   "description": "تعبئة تلقائية متكاملة للولايات والبلديات وطرق الدفع",
   "permissions": ["storage", "notifications", "alarms"],
   "host_permissions": [
